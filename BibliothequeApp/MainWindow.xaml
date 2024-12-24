@@ -1,0 +1,77 @@
+﻿<Window x:Class="BibliothequeApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BibliothequeApp"
+        mc:Ignorable="d"
+        Title="Bibliothèque" Height="450" Width="821" Background="#FAFAFA">
+    <Grid Margin="0,0,-14,0">
+        <Rectangle HorizontalAlignment="Left" Height="48" Margin="208,23,0,0" Stroke="#CCCCCC" 
+                   VerticalAlignment="Top" Width="171" RadiusX="5" RadiusY="5" Fill="#FFFFFF"/>
+
+        <Rectangle HorizontalAlignment="Left" Height="48" Margin="425,23,0,0" Stroke="#CCCCCC" 
+                   VerticalAlignment="Top" Width="183" RadiusX="5" RadiusY="5" Fill="#FFFFFF"/>
+        <TextBox x:Name="filtrer" HorizontalAlignment="Left" Margin="12,90,0,0" 
+                 VerticalAlignment="Top" Width="213" Height="24" 
+                 Padding="5" FontSize="14"
+                 Background="#FFFFFF" BorderBrush="#CCCCCC" BorderThickness="1"
+                 TextChanged="Filtrer_TextChanged"/>
+
+        <ComboBox x:Name="FilterAuthorComboBox" HorizontalAlignment="Left" Margin="244,85,0,0" 
+                  VerticalAlignment="Top" Width="120" FontSize="14"
+                  Padding="5" Background="#FFFFFF" BorderBrush="#CCCCCC" BorderThickness="1"
+                  SelectionChanged="FilterAuthorComboBox_SelectionChanged"/>
+
+        <ComboBox x:Name="SortCriteriaComboBox" HorizontalAlignment="Left" Margin="378,87,0,0" 
+                  VerticalAlignment="Top" Width="120" FontSize="14"
+                  Padding="5" Background="#FFFFFF" BorderBrush="#CCCCCC" BorderThickness="1">
+            <ComboBoxItem Content="Nombre de Pages" />
+            <ComboBoxItem Content="Prix" />
+            <ComboBoxItem Content="Titre" />
+        </ComboBox>
+
+        <RadioButton x:Name="AscendingRadioButton" Content="Ascendant" HorizontalAlignment="Left" Margin="509,91,0,0" 
+                     VerticalAlignment="Top" GroupName="SortOrder" IsChecked="True" FontSize="14"/>
+        <RadioButton x:Name="DescendingRadioButton" Content="Descendant" HorizontalAlignment="Left" Margin="607,91,0,0" 
+                     VerticalAlignment="Top" GroupName="SortOrder" FontSize="14"/>
+
+        <Button Content="Trier" HorizontalAlignment="Left" Margin="715,88,0,0" VerticalAlignment="Top" Width="75"
+                Height="24" FontSize="14" Background="#DCE6F8" BorderBrush="#BCC9D5"
+                Click="SortButton_Click"/>
+
+        <Label x:Name="moyenne" Content="Moyenne des prix" HorizontalAlignment="Left" Margin="225,23,0,0" 
+               VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+        <Label x:Name="total" Content="Nombre total de livres" HorizontalAlignment="Left" Margin="438,23,0,0" 
+               VerticalAlignment="Top" FontSize="14" FontWeight="Bold"/>
+
+        <Label x:Name="moyennedesprix" Content="-" HorizontalAlignment="Left" Margin="221,45,0,0" 
+               VerticalAlignment="Top" Width="135" FontSize="14" HorizontalContentAlignment="Center" Foreground="#333333"/>
+        <Label x:Name="totallivre" Content="-" HorizontalAlignment="Left" Margin="449,48,0,0" 
+               VerticalAlignment="Top" Width="135" FontSize="14" HorizontalContentAlignment="Center" Foreground="#333333"/>
+
+        <DataGrid x:Name="myDataGrid" AutoGenerateColumns="False" Margin="46,150,48,122" 
+                  Background="White" Foreground="#333333" AlternatingRowBackground="#F7F9FC" 
+                  BorderBrush="#CCCCCC" BorderThickness="1" FontSize="14" 
+                  CanUserResizeColumns="True" CanUserResizeRows="False"
+                  SelectionChanged="DataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Titre" Binding="{Binding Titre}" Width="2*" />
+                <DataGridTextColumn Header="Auteur" Binding="{Binding Auteur}" Width="2*" />
+                <DataGridTextColumn Header="Nombre de pages" Binding="{Binding Nb_Pages}" Width="1*" />
+                <DataGridTextColumn Header="Prix (€)" Binding="{Binding Prix}" Width="1*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Label Content="Donner le Titre du livre:" HorizontalAlignment="Left" Margin="12,65,0,0" 
+               VerticalAlignment="Top" FontSize="14" Foreground="#333333"/>
+
+        <Button Content="Gérer les auteurs" HorizontalAlignment="Left" Margin="160,339,0,0" 
+                VerticalAlignment="Top" Width="144" Height="39" FontSize="14" FontWeight="Bold"
+                Background="#FFECECFD" BorderBrush="#F5A1A1" Foreground="#A62B2B" Click="Button_Click"/>
+
+        <Button Content="Gérer les livres" HorizontalAlignment="Left" Margin="438,339,0,0" 
+                VerticalAlignment="Top" Width="143" Height="39" FontSize="14" FontWeight="Bold"
+                Background="#E9F8F6" BorderBrush="#A1D5CD" Foreground="#2A8C76" Click="Button_Click_1"/>
+    </Grid>
+</Window>
