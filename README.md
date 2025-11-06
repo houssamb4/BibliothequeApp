@@ -4,19 +4,6 @@ BibliothequeApp is a C# application for managing a library system. The project u
 
 ---
 
-## Table of Contents
-
-- [Project Overview](#project-overview)
-- [Database Schema](#database-schema)
-- [Features](#features)
-- [Technologies Used](#technologies-used)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-
----
-
 ## Project Overview
 
 BibliothequeApp provides a simple way to manage books and authors in a library. It connects to a SQL Server database and allows adding, updating, deleting, and viewing books and authors. Data consistency is maintained through foreign keys and validation rules.
